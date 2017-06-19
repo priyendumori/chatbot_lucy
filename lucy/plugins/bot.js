@@ -1,0 +1,28 @@
+/* This is to fetch the favourite items of lucy(bot) from the database and return it in good format*/
+
+
+var _ = require("underscore");
+var Utils = require("../node_modules/superscript/lib/bot/utils").default;
+
+exports.getFavorite = function(thing, cb) {
+  var that = this;
+  var message = this.message;
+  var suggest = "";
+  var facts = that.facts.db;
+  var userfacts = that.user.memory.db;
+  var botfacts = that.botfacts.db;
+  
+  var cleanThing = thing.toLowerCase();
+  cleanThing = cleanThing.replace(/\s/g,"_");
+
+  botfacts.get({subject:'favorite', predicate: cleanThing}, function(err, list) {
+    if (!_.isEmpty(list)) {
+      var favThing = Utils.pickItem(list);
+      var favThing = favThing.object.replace(/_/g, " ");
+      cb(null, "My favorite " + thing + " is " + favThing + ".");
+    } else {
+      // Quibble can handle this.
+      cb(null, "");
+    }
+  });
+}

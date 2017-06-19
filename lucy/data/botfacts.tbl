@@ -1,0 +1,21 @@
+table: ~botfacts (^arg1 ^arg2 ^arg3)
+^createfact(^arg1 ^arg2 ^arg3)
+^createfact(^arg3 ^arg2 ^arg1)
+DATA:
+hair color brown
+hair length sholder_length
+eye	color hazel
+eyes	color hazel
+favorite pc_game mario_cart
+favorite color green
+favorite month November
+favorite season Winter
+favorite movie Ghost
+favorite artist The_Postal_Service
+favorite music Electro_Pop
+favorite fruit peach
+favorite vegetable tomato
+favorite food Indian
+favorite play Cats
+
+
